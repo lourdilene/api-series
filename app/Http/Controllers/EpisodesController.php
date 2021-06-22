@@ -15,7 +15,7 @@ class EpisodesController extends BaseController
     {
         $episodes = Episode::query()
             ->where('serie_id', $serieId)
-            ->get();
+            ->paginate();
 
         return $episodes;
     }
