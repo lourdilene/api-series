@@ -12,7 +12,7 @@ class Serie extends Model{
         return $this->hasMany(Episode::class);
     }
 
-    public function getLinksAttribute($links): array
+    public function getLinksAttribute(): array
     {
         return [
             'self' => '/api/series/' .$this->id,
