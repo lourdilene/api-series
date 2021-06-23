@@ -1,4 +1,5 @@
 <?php
+use App\Http\Middleware\AuthenticatorMiddleware;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
@@ -23,7 +24,7 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
-// $app->withFacades();
+$app->withFacades();
 
 $app->withEloquent();
 
@@ -78,6 +79,10 @@ $app->configure('app');
 
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
+]);
+
+$app->routeMiddleware([
+    'authenticator' => AuthenticatorMiddleware::class,
 ]);
 
 /*

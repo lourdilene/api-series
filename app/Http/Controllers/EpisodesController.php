@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Episode;
+use App\Models\Episode;
 
 class EpisodesController extends BaseController
 {

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Serie;
+use App\Models\Serie;
 
 class SeriesController extends BaseController
 {

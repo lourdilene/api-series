@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Http\Request;
 use Firebase\JWT\JWT;
+use Illuminate\Auth\GenericUser;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -33,15 +34,7 @@ class AuthServiceProvider extends ServiceProvider
         // the User instance via an API token or any other method necessary.
 
         $this->app['auth']->viaRequest('api', function (Request $request) {
-            if (!$request->hasHeader('Authorization')) {
-                return null;
-            }
-            $authorizationHeader = $request->header('Authorization');
-            $token = str_replace('Bearer ','',$authorizationHeader);
-            $autenticationData = JWT::decode($token,'',['HS256']);
-
-            return new GenericUser(['email' => $autenticationData]);
-            //return User::where('email', $autenticationData['email'])->first();
+            
         });
     }
 }
