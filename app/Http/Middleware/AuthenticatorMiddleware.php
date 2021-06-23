@@ -36,7 +36,7 @@ class AuthenticatorMiddleware
             return $next($request);
 
         } catch (\Exception $e) {
-            return response()->json('Usuário não autorizado',401);
+            return response()->json('Não autorizado',401);
         }        
     }
 }
